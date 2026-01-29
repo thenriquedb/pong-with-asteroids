@@ -49,9 +49,9 @@ func spawn_asteroid():
 		var asteroid_instance = asteroid_scene.instantiate()
 		asteroid_instance.global_position = spawn_position.position
 		
-		if new_asteroid_color != null:
-			print("ok")
-			asteroid_instance.get_node("Sprite2D").texture = new_asteroid_color
+		#if new_asteroid_color != null:
+			#print("ok")
+			#asteroid_instance.get_node("Sprite2D").texture = new_asteroid_color
 		
 		add_child(asteroid_instance)
 		last_postion = spawn_position
@@ -105,7 +105,7 @@ func check_pongs(current_pongs: int):
 func update_theme(theme_key: String):
 	label_pongs.label_settings.font_color = resources[theme_key].color
 	background.set_texture(resources[theme_key].background)
-	update_asteroids(theme_key)
+	#update_asteroids(theme_key)
 	
 func update_asteroids(theme_key):
 	var asteroids = get_tree().get_nodes_in_group("asteroids")

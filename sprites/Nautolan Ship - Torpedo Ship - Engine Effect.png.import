@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyi23rf758ahi"
-path="res://.godot/imported/Asteroide1.png-e25be65aac980e4fcc939369c47a552b.ctex"
+uid="uid://ym3m2qvi4ogk"
+path="res://.godot/imported/Nautolan Ship - Torpedo Ship - Engine Effect.png-a156ea5c734ca9fe3f7fb72f8cf99657.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Asteroide1.png"
-dest_files=["res://.godot/imported/Asteroide1.png-e25be65aac980e4fcc939369c47a552b.ctex"]
+source_file="res://sprites/Nautolan Ship - Torpedo Ship - Engine Effect.png"
+dest_files=["res://.godot/imported/Nautolan Ship - Torpedo Ship - Engine Effect.png-a156ea5c734ca9fe3f7fb72f8cf99657.ctex"]
 
 [params]
 

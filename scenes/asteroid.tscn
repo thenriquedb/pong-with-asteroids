@@ -1,18 +1,72 @@
 [gd_scene format=3 uid="uid://cyrshnr0wa3re"]
 
 [ext_resource type="Script" uid="uid://8ju8k5xml8x1" path="res://scripts/asteroid.gd" id="1_6mo6b"]
-[ext_resource type="Texture2D" uid="uid://b1wsr1s3t03qg" path="res://sprites/Asteroide1.png" id="1_akfqu"]
+[ext_resource type="Texture2D" uid="uid://3s2w8tkpu6yf" path="res://sprites/Asteroid 01 - Explode.png" id="3_t4se3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akfqu"]
 radius = 55.443665
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnq5b"]
+atlas = ExtResource("3_t4se3")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwrvu"]
+atlas = ExtResource("3_t4se3")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jovh"]
+atlas = ExtResource("3_t4se3")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkwpv"]
+atlas = ExtResource("3_t4se3")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1lus"]
+atlas = ExtResource("3_t4se3")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71tyo"]
+atlas = ExtResource("3_t4se3")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm418"]
+atlas = ExtResource("3_t4se3")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mo6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnq5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwrvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jovh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkwpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1lus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71tyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm418")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Asteroid" type="Area2D" unique_id=1026371431]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_6mo6b")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1519965944]
-texture = ExtResource("1_akfqu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=547404298]
 shape = SubResource("CircleShape2D_akfqu")
@@ -21,6 +75,12 @@ debug_color = Color(0.8391285, 0.3684058, 0.3049004, 0.41960785)
 [node name="TimerDelete" type="Timer" parent="." unique_id=1672029470]
 
 [node name="VisibleNotifer" type="VisibleOnScreenNotifier2D" parent="." unique_id=1936199664]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1145775832]
+position = Vector2(5, -1)
+scale = Vector2(2.4583333, 2.4583333)
+sprite_frames = SubResource("SpriteFrames_6mo6b")
+frame_progress = 0.7750044
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TimerDelete" to="." method="_on_timer_delete_timeout"]

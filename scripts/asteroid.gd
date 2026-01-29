@@ -3,6 +3,9 @@ extends Area2D
 @export var speed = 140
 @export var rotation_speed = 1.3
 
+@onready var animated_sprite = $AnimatedSprite2D  # Adicione esta linha
+
+
 @onready var timer_delete = $TimerDelete
 
 const SCREEN_WIDTH = 540
@@ -29,6 +32,5 @@ func _on_timer_delete_timeout() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	print("collion")
+	animated_sprite.play()
 	body.pongs += 1
-	queue_free()

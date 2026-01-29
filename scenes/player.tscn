@@ -1,7 +1,72 @@
 [gd_scene format=3 uid="uid://tqbqvp8yrylv"]
 
-[ext_resource type="Texture2D" uid="uid://bkjuheg4q64rp" path="res://sprites/Raquete.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cvjjhxh673o6q" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://c88p3tp6glfr7" path="res://sprites/paddle.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://ym3m2qvi4ogk" path="res://sprites/Nautolan Ship - Torpedo Ship - Engine Effect.png" id="3_qhqgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v2ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 12.999999
@@ -13,9 +78,16 @@ platform_wall_layers = 2
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=124375103]
-position = Vector2(0.5000043, 0.2929676)
-scale = Vector2(1, 1.0634373)
-texture = ExtResource("1_3vyb7")
+position = Vector2(1, 3.0000005)
+scale = Vector2(2.1201174, 2.2546117)
+texture = ExtResource("2_g2els")
+
+[node name="Thrusters" type="AnimatedSprite2D" parent="Sprite2D" unique_id=429197620]
+position = Vector2(0.9433442, 3.548283)
+scale = Vector2(0.9728235, 0.9147917)
+sprite_frames = SubResource("SpriteFrames_3v2ag")
+autoplay = "default"
+frame_progress = 0.25939772
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054924107]
 rotation = 1.5707964
