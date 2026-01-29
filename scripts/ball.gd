@@ -17,15 +17,16 @@ func _physics_process(delta: float):
 	var collision = move_and_collide(velocity * delta)
 	if !collision: return
 	
-	if collision.get_collider().name == "TopWall":
-		if(velocity.length() > max_speed):
-			pongs += 1
-			velocity = velocity.bounce(collision.get_normal())
-		else:
-			velocity = velocity.bounce(collision.get_normal()) * incrmental_speed
-			
-	else:
+	if collision.get_collider().name != "TopWall":
 		velocity = velocity.bounce(collision.get_normal())
+		return
+	
+	if(velocity.length() > max_speed):
+		velocity = velocity.bounce(collision.get_normal())
+	else:
+		velocity = velocity.bounce(collision.get_normal()) * incrmental_speed
+
+	pongs += 1
 
 func start_game():
 	started = true
