@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 var started = false
-var incrmental_speed = 1.03
+var incrmental_speed = 1.05
 var angle = [-250, 250]
 var pongs = 0
+var max_speed = 1500
 
 @export var START_SPEED = 500
 
@@ -17,8 +18,12 @@ func _physics_process(delta: float):
 	if !collision: return
 	
 	if collision.get_collider().name == "TopWall":
-		velocity = velocity.bounce(collision.get_normal()) * incrmental_speed
-		pongs += 1
+		if(velocity.length() > max_speed):
+			pongs += 1
+			velocity = velocity.bounce(collision.get_normal())
+		else:
+			velocity = velocity.bounce(collision.get_normal()) * incrmental_speed
+			
 	else:
 		velocity = velocity.bounce(collision.get_normal())
 

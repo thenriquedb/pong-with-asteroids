@@ -28,7 +28,7 @@ func _on_visible_notifer_screen_exited() -> void:
 func _on_timer_delete_timeout() -> void:
 	queue_free()
 
-func _on_body_collision(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
+	print("collion")
 	body.pongs += 1
 	queue_free()
-	

@@ -22,5 +22,6 @@ debug_color = Color(0.8391285, 0.3684058, 0.3049004, 0.41960785)
 
 [node name="VisibleNotifer" type="VisibleOnScreenNotifier2D" parent="." unique_id=1936199664]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TimerDelete" to="." method="_on_timer_delete_timeout"]
 [connection signal="screen_exited" from="VisibleNotifer" to="." method="_on_visible_notifer_screen_exited"]
