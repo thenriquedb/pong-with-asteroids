@@ -5,7 +5,6 @@ extends Area2D
 
 @onready var animated_sprite = $AnimatedSprite2D  # Adicione esta linha
 
-
 @onready var timer_delete = $TimerDelete
 
 const SCREEN_WIDTH = 540
@@ -28,9 +27,9 @@ func _process(delta: float) -> void:
 func _on_visible_notifer_screen_exited() -> void:
 	timer_delete.start()
 
-func _on_timer_delete_timeout() -> void:
-	queue_free()
-
 func _on_body_entered(body: Node2D) -> void:
 	animated_sprite.play()
 	body.pongs += 1
+
+func _on_finished_destroy_animation() -> void:
+	queue_free()

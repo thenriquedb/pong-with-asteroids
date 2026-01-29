@@ -58,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jm418")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 8.0
 }]
@@ -80,8 +80,10 @@ debug_color = Color(0.8391285, 0.3684058, 0.3049004, 0.41960785)
 position = Vector2(5, -1)
 scale = Vector2(2.4583333, 2.4583333)
 sprite_frames = SubResource("SpriteFrames_6mo6b")
-frame_progress = 0.7750044
+frame = 1
+frame_progress = 0.5505234
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TimerDelete" to="." method="_on_timer_delete_timeout"]
 [connection signal="screen_exited" from="VisibleNotifer" to="." method="_on_visible_notifer_screen_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_finished_destroy_animation"]

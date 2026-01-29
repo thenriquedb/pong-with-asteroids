@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dty5c4ej8we7v"]
 
-[ext_resource type="Texture2D" uid="uid://dqn8n4lshmlrq" path="res://sprites/Fundo10.png" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://wq2n6tijpge4" path="res://sprites/Fundo1.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://c2ux864a5brfd" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://tqbqvp8yrylv" path="res://scenes/player.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://caf308g2quof1" path="res://scenes/ball.tscn" id="3_lnu2h"]
@@ -18,7 +18,7 @@ size = Vector2(535, 28.5)
 [sub_resource type="LabelSettings" id="LabelSettings_iywne"]
 font = ExtResource("4_iywne")
 font_size = 250
-font_color = Color(0.42050573, 0.13438796, 0.84748155, 1)
+font_color = Color(0.1646733, 0.023875523, 0.36593252, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p57ef"]
 font = ExtResource("4_iywne")
@@ -110,7 +110,7 @@ position = Vector2(652, 95)
 position = Vector2(626, 282)
 
 [node name="TimerSpawner" type="Timer" parent="." unique_id=1367196052]
-wait_time = 0.709
+wait_time = 2.0
 autostart = true
 
 [connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
