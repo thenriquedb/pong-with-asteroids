@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://caf308g2quof1"]
+
+[ext_resource type="Texture2D" uid="uid://68sif3juuw8" path="res://sprites/Bola.png" id="1_7s4qf"]
+[ext_resource type="Script" uid="uid://bsdg2m18qt2r2" path="res://scripts/ball.gd" id="1_cxlvu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s4qf"]
+radius = 16.0
+
+[node name="Ball" type="CharacterBody2D" unique_id=1132412067]
+script = ExtResource("1_cxlvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=739041146]
+texture = ExtResource("1_7s4qf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1638495627]
+shape = SubResource("CircleShape2D_7s4qf")
+debug_color = Color(0.6694576, 0.5094468, 0.049844734, 0.41960785)

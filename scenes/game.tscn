@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dty5c4ej8we7v"]
+
+[ext_resource type="Texture2D" uid="uid://dqn8n4lshmlrq" path="res://sprites/Fundo1.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://c2ux864a5brfd" path="res://scripts/game.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://tqbqvp8yrylv" path="res://scenes/player.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://caf308g2quof1" path="res://scenes/ball.tscn" id="3_lnu2h"]
+[ext_resource type="FontFile" uid="uid://dcybx1oa6d813" path="res://static/fonts/BalooThambi2-ExtraBold.ttf" id="4_iywne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
+size = Vector2(539.53125, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(1.5, 949.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(535, 28.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iywne"]
+font = ExtResource("4_iywne")
+font_size = 250
+font_color = Color(0.42050573, 0.13438796, 0.84748155, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p57ef"]
+font = ExtResource("4_iywne")
+font_size = 36
+
+[node name="Game" type="Node2D" unique_id=116678526]
+script = ExtResource("1_iywne")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=307563941]
+texture = ExtResource("1_80nbo")
+centered = false
+
+[node name="Player" parent="." unique_id=1150620909 instance=ExtResource("2_e2o6t")]
+position = Vector2(270, 894)
+collision_mask = 6
+
+[node name="TopWall" type="StaticBody2D" parent="." unique_id=713784111]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall" unique_id=1234948295]
+position = Vector2(270.23438, 7.25)
+shape = SubResource("RectangleShape2D_yqjtg")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=174550785]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=704393877]
+position = Vector2(1.25, 484.125)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="RighWall" type="StaticBody2D" parent="." unique_id=117397286]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RighWall" unique_id=1094804147]
+position = Vector2(539, 486)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="Hole" type="Area2D" parent="." unique_id=1842943114]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole" unique_id=551605631]
+position = Vector2(270.5, 944.25)
+shape = SubResource("RectangleShape2D_lbhrr")
+debug_color = Color(0.9935898, 0, 0.24218386, 0.41960785)
+
+[node name="LabelPongs" type="Label" parent="." unique_id=1578529914]
+visible = false
+offset_left = -1.0
+offset_top = 5.0
+offset_right = 542.0
+offset_bottom = 961.0
+text = "0"
+label_settings = SubResource("LabelSettings_iywne")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ball" parent="." unique_id=1132412067 instance=ExtResource("3_lnu2h")]
+z_index = 4
+position = Vector2(266, 864)
+collision_layer = 2
+collision_mask = 29
+
+[node name="Tutorial" type="Label" parent="." unique_id=1426538870]
+offset_left = 6.0
+offset_top = 452.0
+offset_right = 538.0
+offset_bottom = 509.0
+text = "Press 'space' to start"
+label_settings = SubResource("LabelSettings_p57ef")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Positions" type="Node2D" parent="." unique_id=1315997879]
+
+[node name="Pos_01" type="Marker2D" parent="Positions" unique_id=1762113833]
+position = Vector2(-111, 101)
+
+[node name="Pos_02" type="Marker2D" parent="Positions" unique_id=427002051]
+position = Vector2(-86, 371)
+
+[node name="Pos_03" type="Marker2D" parent="Positions" unique_id=2078269196]
+position = Vector2(652, 95)
+
+[node name="Pos_04" type="Marker2D" parent="Positions" unique_id=232720447]
+position = Vector2(626, 282)
+
+[node name="TimerSpawner" type="Timer" parent="." unique_id=1367196052]
+wait_time = 0.709
+autostart = true
+
+[connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
+[connection signal="timeout" from="TimerSpawner" to="." method="_on_timer_spawner_timeout"]
