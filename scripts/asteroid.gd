@@ -30,6 +30,9 @@ func _on_visible_notifer_screen_exited() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	animated_sprite.play()
 	body.pongs += 1
+	
+	if body.is_in_group("Ball"):
+		body.velocity.y *= -1
 
 func _on_finished_destroy_animation() -> void:
 	queue_free()

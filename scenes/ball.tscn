@@ -15,7 +15,7 @@ colors = PackedColorArray(1, 0.8784314, 0, 0.60784316, 1, 0.45490196, 0.2, 0.654
 [sub_resource type="CircleShape2D" id="CircleShape2D_7s4qf"]
 radius = 16.0
 
-[node name="Ball" type="CharacterBody2D" unique_id=1132412067]
+[node name="Ball" type="CharacterBody2D" unique_id=1132412067 groups=["Ball"]]
 script = ExtResource("1_cxlvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=739041146]

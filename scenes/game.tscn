@@ -110,7 +110,7 @@ position = Vector2(652, 95)
 position = Vector2(626, 282)
 
 [node name="TimerSpawner" type="Timer" parent="." unique_id=1367196052]
-wait_time = 2.0
+wait_time = 0.85
 autostart = true
 
 [connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
