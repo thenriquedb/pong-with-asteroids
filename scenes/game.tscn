@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dcybx1oa6d813" path="res://static/fonts/BalooThambi2-ExtraBold.ttf" id="4_iywne"]
 [ext_resource type="AudioStream" uid="uid://25fy71jmlo2w" path="res://static/sounds/Wall of Mirrors.wav" id="6_p57ef"]
 [ext_resource type="AudioStream" uid="uid://cfo7d8w53548g" path="res://static/sounds/level_up.wav" id="7_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://b0mume6r6vwgm" path="res://static/sounds/harsh_destruction.wav" id="8_gee14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
 size = Vector2(539.53125, 13.5)
@@ -119,6 +120,10 @@ stream = ExtResource("6_p57ef")
 [node name="LevelUpSFX" type="AudioStreamPlayer2D" parent="." unique_id=803599985]
 stream = ExtResource("7_u5sy4")
 
+[node name="LostGameSFX" type="AudioStreamPlayer2D" parent="." unique_id=1653581207]
+stream = ExtResource("8_gee14")
+
 [connection signal="texture_changed" from="Background" to="." method="_on_background_texture_changed"]
 [connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
 [connection signal="timeout" from="TimerSpawner" to="." method="_on_timer_spawner_timeout"]
+[connection signal="finished" from="LostGameSFX" to="." method="_on_lost_game_sfx_finished"]

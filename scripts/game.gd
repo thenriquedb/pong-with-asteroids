@@ -7,6 +7,7 @@ extends Node2D
 @onready var timer_spawner = $TimerSpawner
 @onready var bgSong = $BgSong
 @onready var levelUpSfx = $LevelUpSFX
+@onready var lostGameSfx = $LostGameSFX
 
 var asteroid_scene = preload("res://scenes/asteroid.tscn")
 var new_asteroid_color
@@ -37,7 +38,8 @@ func _process(delta):
 	
 		
 func _on_hole_body_entered(body: Node2D) -> void:
-	call_deferred("reload_scene")
+	lostGameSfx.play()
+
 	
 func reload_scene():
 	get_tree().reload_current_scene()
@@ -126,3 +128,7 @@ func update_asteroid_spawn_rate(current_pongs):
 
 func _on_background_texture_changed() -> void:
 	levelUpSfx.play()
+
+
+func _on_lost_game_sfx_finished() -> void:
+	call_deferred("reload_scene")
