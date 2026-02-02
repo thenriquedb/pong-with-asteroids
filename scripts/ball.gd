@@ -6,6 +6,8 @@ var angle = [-250, 250]
 var pongs = 0
 var max_speed = 1500
 
+@onready var wall_impact_sfx = $WallImpactSFX
+
 @export var START_SPEED = 500
 
 func _physics_process(delta: float):	
@@ -16,6 +18,8 @@ func _physics_process(delta: float):
 	
 	var collision = move_and_collide(velocity * delta)
 	if !collision: return
+	
+	wall_impact_sfx.play()
 	
 	if collision.get_collider().name != "TopWall":
 		velocity = velocity.bounce(collision.get_normal())

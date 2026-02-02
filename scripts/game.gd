@@ -4,6 +4,9 @@ extends Node2D
 @onready var label_pongs = $LabelPongs
 @onready var tutorial_label = $Tutorial
 @onready var background = $Background
+@onready var timer_spawner = $TimerSpawner
+@onready var bgSong = $BgSong
+@onready var levelUpSfx = $LevelUpSFX
 
 var asteroid_scene = preload("res://scenes/asteroid.tscn")
 var new_asteroid_color
@@ -13,7 +16,12 @@ var text: String
 var resources = {}
 
 func _ready():
+	timer_spawner.autostart = true
+	timer_spawner.wait_time= 2.0
+	timer_spawner.start()
+	
 	preload_resources()
+	bgSong.play()
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_R):
@@ -23,7 +31,8 @@ func _process(delta):
 		label_pongs.visible = true
 		tutorial_label.visible = false
 		check_pongs(ball.pongs)
-			
+		update_asteroid_spawn_rate(ball.pongs)
+		
 	label_pongs.text = str(ball.pongs)
 	
 		
@@ -89,12 +98,12 @@ func check_pongs(current_pongs: int):
 		30: update_theme("theme_4")
 		40: update_theme("theme_5")
 		50: update_theme("theme_6")
-
+	
 	
 func update_theme(theme_key: String):
 	label_pongs.label_settings.font_color = resources[theme_key].color
 	background.set_texture(resources[theme_key].background)
-	#update_asteroids(theme_key)
+	
 	
 func update_asteroids(theme_key):
 	var asteroids = get_tree().get_nodes_in_group("asteroids")
@@ -103,4 +112,17 @@ func update_asteroids(theme_key):
 		asteroid.get_node("Sprite2D").texture = resources[theme_key].asteroid
 	
 	new_asteroid_color = resources[theme_key].asteroid
-	
+
+
+func update_asteroid_spawn_rate(current_pongs):
+		match current_pongs:
+			0: timer_spawner = 2.5
+			10: timer_spawner = 2.25
+			20: timer_spawner = 2
+			30: timer_spawner = 1.75
+			40: timer_spawner = 1.5
+			50: timer_spawner = 1.25
+
+
+func _on_background_texture_changed() -> void:
+	levelUpSfx.play()

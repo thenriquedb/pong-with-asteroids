@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://25fy71jmlo2w"
+path="res://.godot/imported/Wall of Mirrors.wav-158ec0429fcae71f2989342794a817fe.sample"
+
+[deps]
+
+source_file="res://static/sounds/Wall of Mirrors.wav"
+dest_files=["res://.godot/imported/Wall of Mirrors.wav-158ec0429fcae71f2989342794a817fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

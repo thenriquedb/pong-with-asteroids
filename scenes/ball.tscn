@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cyl5slde6ym1j" path="res://sprites/Bola.png" id="1_7s4qf"]
 [ext_resource type="Script" uid="uid://bsdg2m18qt2r2" path="res://scripts/ball.gd" id="1_cxlvu"]
 [ext_resource type="Script" uid="uid://bwp054t3ucgdp" path="res://scripts/ball_trail.gd" id="3_f7cbr"]
+[ext_resource type="AudioStream" uid="uid://7e35lkaw21i1" path="res://static/sounds/cancel_4.wav" id="4_4dx81"]
 
 [sub_resource type="Curve" id="Curve_f7cbr"]
 _data = [Vector2(0.026666671, 0.022471905), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -31,3 +32,6 @@ script = ExtResource("3_f7cbr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1638495627]
 shape = SubResource("CircleShape2D_7s4qf")
 debug_color = Color(0.6694576, 0.5094468, 0.049844734, 0.41960785)
+
+[node name="WallImpactSFX" type="AudioStreamPlayer2D" parent="." unique_id=1155742595]
+stream = ExtResource("4_4dx81")

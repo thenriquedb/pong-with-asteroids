@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cyrshnr0wa3re"]
 
 [ext_resource type="Script" uid="uid://8ju8k5xml8x1" path="res://scripts/asteroid.gd" id="1_6mo6b"]
+[ext_resource type="AudioStream" uid="uid://dhxup0uprx8gd" path="res://static/sounds/explosion_1.wav" id="3_pnq5b"]
 [ext_resource type="Texture2D" uid="uid://3s2w8tkpu6yf" path="res://sprites/Asteroid 01 - Explode.png" id="3_t4se3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akfqu"]
@@ -82,6 +83,9 @@ scale = Vector2(2.4583333, 2.4583333)
 sprite_frames = SubResource("SpriteFrames_6mo6b")
 frame = 1
 frame_progress = 0.5505234
+
+[node name="DestroySFX" type="AudioStreamPlayer2D" parent="." unique_id=951601759]
+stream = ExtResource("3_pnq5b")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TimerDelete" to="." method="_on_timer_delete_timeout"]

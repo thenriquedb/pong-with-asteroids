@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://tqbqvp8yrylv" path="res://scenes/player.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://caf308g2quof1" path="res://scenes/ball.tscn" id="3_lnu2h"]
 [ext_resource type="FontFile" uid="uid://dcybx1oa6d813" path="res://static/fonts/BalooThambi2-ExtraBold.ttf" id="4_iywne"]
+[ext_resource type="AudioStream" uid="uid://25fy71jmlo2w" path="res://static/sounds/Wall of Mirrors.wav" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://cfo7d8w53548g" path="res://static/sounds/level_up.wav" id="7_u5sy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
 size = Vector2(539.53125, 13.5)
@@ -110,8 +112,13 @@ position = Vector2(652, 95)
 position = Vector2(626, 282)
 
 [node name="TimerSpawner" type="Timer" parent="." unique_id=1367196052]
-wait_time = 0.85
-autostart = true
 
+[node name="BgSong" type="AudioStreamPlayer2D" parent="." unique_id=578037023]
+stream = ExtResource("6_p57ef")
+
+[node name="LevelUpSFX" type="AudioStreamPlayer2D" parent="." unique_id=803599985]
+stream = ExtResource("7_u5sy4")
+
+[connection signal="texture_changed" from="Background" to="." method="_on_background_texture_changed"]
 [connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
 [connection signal="timeout" from="TimerSpawner" to="." method="_on_timer_spawner_timeout"]

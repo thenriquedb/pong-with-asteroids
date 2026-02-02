@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 500
+@export var SPEED = 700
 
 var ball
 
@@ -10,8 +10,7 @@ func _ready():
 func _physics_process(delta: float):
 	self.velocity.x = 0
 
-	if ball.started == false:
-		return 
+	if ball.started == false: return 
 	
 	if Input.is_action_pressed("ui_left"):
 		self.velocity.x -= SPEED
